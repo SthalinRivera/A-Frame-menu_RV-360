@@ -1,0 +1,131 @@
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+  <script src="app.js"></script>
+  <script src="components/change-sky.js"></script>
+  <script src="components/menu-view.js"></script>
+</head>
+
+<body>
+  <a-scene>
+    <a-assets>
+      <audio id="click-sound" crossorigin="anonymous"
+        src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>
+      <img id="sky-default" src="img/sky-default.jpeg">
+      <img id="sky-faro" src="img/sites/faro.jpg" alt="">
+      <img id="sky-fraile" src="img/sites/fraile.jpg" alt="">
+      <img id="sky-monumento" src="img/sites/monumento.jpg" alt="">
+      <img id="sky-muelle" src="img/sites/muelle.jpg" alt="">
+      <img id="sky-fraile" src="img/sites/fraile.jpg" alt="">
+      <img id="sky-plaza" src="img/sites/plaza.jpg" alt="">
+      <img id="sky-museo" src="img/sites/museo.jpg" alt="">
+      <img id="sky-playa" src="img/sites/playa.jpg" alt="">
+      <img id="sky-arco" src="img/sites/arco2.jpg" alt="">
+
+      <img id="icon-menu" src="img/menu/icon-menu.png" alt="">
+      <img id="icon-game" src="img/menu/icon-game.png" alt="">
+      <img id="menu-faro" src="img/menu/menu-faro.png" alt="">
+      <img id="menu-fraile" src="img/menu/menu-fraile.png" alt="">
+      <img id="menu-muelle" src="img/menu/menu-muelle.png" alt="">
+      <img id="menu-monumento" src="img/menu/menu-monumento.png" alt="">
+      <img id="menu-plaza" src="img/menu/menu-plaza.png" alt="">
+      <img id="menu-museo" src="img/menu/menu-museo.png" alt="">
+
+      <img id="menu-left-01" src="img/menu/menu-left-01.png" alt="">
+      <img id="menu-left-02" src="img/menu/menu-left-02.png" alt="">
+
+      <img id="img-360-02" src="img/img-360-02.jpg" alt="">
+
+      <img id="play" src="play.png">
+      <img id="pause" src="pause.png">
+      <video id="sufer" loop="true" src="video.mp4"></video>
+    </a-assets>
+
+    <a-sky id="my-sky" src="#sky-default"></a-sky>
+
+    <a-entity class="menu-view" visible="true">
+      <a-entity class="menu-center">
+        <a-image cursor-scale-hover position="-0.37 2.2 -2.030" src="#menu-plaza" scale="1.691 0.99 1.1"
+          change-sky="img: #sky-plaza"></a-image>
+        <a-image position="0.905 2.45 -2.030" src="#menu-muelle" scale="0.819 0.5 0.3"
+          change-sky="img: #sky-muelle"></a-image>
+        <a-image position="0.905 1.94 -2.030" src="#menu-museo" scale="0.819 0.5 0.3" change-sky="img: #sky-museo"
+          value="1"></a-image>
+        <a-image position="0.05 1.43 -2.030" src="#menu-fraile" scale="0.819 0.5 0.3"
+          change-sky="img: #sky-fraile"></a-image>
+        <a-image position="0.905 1.43 -2.030" src="#menu-monumento" scale="0.819 0.5 0.3"
+          change-sky="img: #sky-monumento"></a-image>
+        <a-image position="-0.79 1.44 -2.030" src="#menu-faro" scale="0.819 0.5 0.3"
+          change-sky="img: #sky-faro"></a-image>
+      </a-entity>
+      <a-entity class="menu-left">
+        <a-plane position="1.7 2.55 -2.030" scale="0.5 0.5 0.5" rotation="0 -45 0" color="#B03A2E"
+          change-sky="img: #sky-monumento">
+          <a-image src="#icon-game" position="0 0.003 0.075" scale="0.819 0.5 0.35"></a-image>
+        </a-plane>
+        <a-plane position="1.7 1.98 -2.030" scale="0.5 0.5 0.5" rotation="0 -45 0" color="#2874A6"
+          change-sky="img: #sky-monumento"></a-plane>
+        <a-plane position="1.7 1.4 -2.030" scale="0.5 0.5 0.5" rotation="0 -45 0" color="#D4AC0D"
+          change-sky="img: #sky-monumento"></a-plane>
+      </a-entity>
+      <a-entity class="menu-right">
+        <a-plane position="-1.7 2.35 -2.030" scale="0.8 1 0.5" rotation="0 45 0" color="#212F3D"
+          change-sky="img: #sky-monumento"></a-plane>
+        <a-plane position="-1.7 1.5 -2.030" scale="0.8 0.65 0.5" rotation="0 45 0" color="#17202A"
+          change-sky="img: #sky-monumento"></a-plane>
+      </a-entity>
+    </a-entity>
+    <a-entity id="icon-menu-img" position="0.05 1 -2.030" visible="false" scale="0.3 0.3 0.3" 
+    material = "repeat: 16 8; transparent: true; opacity: 1.0;"
+		shadow = "cast: false; receive: true"
+		animation__opacity = "property: material.opacity; dur: 3000; easing: linear; dir: normal; from:1; to:0; loop: true" >
+      <a-image src="#icon-menu"></a-image>
+    </a-entity>
+
+
+
+
+    <a-sphere id="sphere-museo" visible="false" position="-1.036 1.540 2.110" color="yellow" radius="0.3"></a-sphere>
+     <!-- 1-->
+    <a-entity position="-1.177 2.242 1.070" 
+    rotation="13 77.023 -1.848" 
+    id="txt-el-fraile"
+    visible="false" 
+    material = "src: #grid; repeat: 16 8;"
+		shadow = "cast: true; receive: true"
+		animation__position = "property: position; dur: 3000; easing: easeInOutSine; dir: alternate; from:-1.177 2.9 1.070; to: -1.177 2.24 1.070; loop: true">
+      <a-entity position="0.05 0.32 -2.00" geometry="primitive: plane; width: 3; height: auto"
+        material="color: #000000; opacity: 0.8;"
+        text=" width: auto; align:center; wrapCount:40; value: EL FRAILE"></a-entity>
+      <a-entity position="0.05 -0.3 -2.00" geometry="primitive: plane; width: 3; height: auto"
+        material="color: #000000 ; opacity: 0.5;"
+        text=" width: auto; align:center; wrapCount:40; color: #38F51E; value: Es uno de los atractivos turísticos más importantes del distrito que enierra una misteriosa leyenda del porqué de su nombre. Surgió a raíz del terremoto de 1678, a causa  de que la poblacíon Cañetana estaba siendo saqueada por piratas, es por ello que los misioneros franciscanos enviaban al distrito de Cerro Azul un fraile que podía observar y advertir a los pobladores."></a-entity>
+    </a-entity>
+
+    <!-- CAMERA -->
+    <a-camera sound__click="src: #click-sound; on: click; positional: false;">
+
+      <!-- Only make entities with class="clickable" clickable. -->
+      <a-cursor opacity="0.4">
+      </a-cursor></a-camera>
+    <!--       Controlar 
+        <a-entity cursor-listener
+          animation__click="property: scale; startEvents: click; easing:
+          easeInCubic; dur: 150; from: 0.1 0.1 0.1; to: 1 1 1"
+          animation__fusing="property: scale; startEvents: fusing; easing:
+          easeInCubic; dur: 1500; from: 1 1 1; to: 0.1 0.1 0.1"
+          animation__mouseleave="property: scale; startEvents: mouseleave;
+          easing: easeInCubic; dur: 500; to: 1 1 1" cursor="fuse: true;
+          fuseTimeout: 2000"
+          position="0 0 -1"
+          geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03"
+          material="color: #1382CB; shader: flat">
+        </a-entity>
+      </a-entity>
+    </a-scene>cursor -->
+    <a-entity camera look-controls>
+</body>
+
+</html>
